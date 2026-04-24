@@ -29,6 +29,5 @@ components:
         providerAttributes:
           $ref: https://schema.beckn.io/Attributes/v2.0/attributes.yaml#/components/schemas/Attributes
       required:
-      - id
       - descriptor
       additionalProperties: false
