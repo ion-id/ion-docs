@@ -1,0 +1,395 @@
+{
+  // Beckn v2 transport envelope context.
+  // Note: this is NOT JSON-LD @context; this is Beckn protocol "context".
+  "context": {
+    // [Beckn Context]
+    "domain": "retail:electronics:handsets",
+    // [Beckn Context]
+    "action": "catalog/publish",
+    // [Beckn Context]
+    "version": "2.0.0",
+    // [Beckn Context]
+    "bapId": "bap.example-aggregator.on.dedi",
+    // [Beckn Context]
+    "bapUri": "https://api.example-aggregator.example/beckn",
+    // [Beckn Context]
+    "bppId": "bpp.muthu-phones.example.on.dedi",
+    // [Beckn Context]
+    "bppUri": "https://api.muthu-phones.example/beckn",
+    // [Beckn Context]
+    "transactionId": "a3d7c89e-2c4a-4b2f-9e1d-6f8a0b2c4d6e",
+    // [Beckn Context]
+    "messageId": "f1e2d3c4-b5a6-7890-abcd-ef1234567890",
+    // [Beckn Context]
+    "networkId": "ion.network/retail-handset-indexer",
+    // [Beckn Context]
+    "timestamp": "2026-05-01T12:34:56.789Z",
+    // [Beckn Context]
+    "ttl": "PT30M",
+    // Beckn v2 Context.schemaContext is an array of URIs.
+    // This announces relevant vocabularies for the overall request envelope.
+    "schemaContext": [
+      "https://schema.beckn.io/core/v2.0/context.jsonld",
+      "https://schema.ion.id/ns/2026/context/ion-retail-trade-item-v1.jsonld",
+      "https://schema.samsung.com/ion/retail/v1/context/smartphone-v1.jsonld",
+      "https://reseller.muthu.example/ns/7a3f9c2d/context/muthu-reseller-phones-v1.jsonld",
+      "https://schema.ion.id/ns/2026/context/ion-monetary-consideration-v1.jsonld"
+    ]
+  },
+  // Request payload for POST /catalog/publish
+  "message": {
+    // [Beckn CatalogPublishAction]
+    "catalogs": [
+      {
+        // [Beckn Catalog]
+        "id": "catalog-muthu-smartphones-in-2026q2",
+        // [Beckn Catalog]
+        "bppId": "bpp.muthu-phones.example.on.dedi",
+        // [Beckn Catalog]
+        "bppUri": "https://api.muthu-phones.example/beckn",
+        // [Beckn Catalog]
+        "isActive": true,
+        // [Beckn Catalog -> Descriptor]
+        "descriptor": {
+          // [Beckn Descriptor]
+          "name": "Muthu Mobiles — Samsung smartphones (new & pre-owned)",
+          // [Beckn Descriptor]
+          "shortDesc": "ION retail catalog: Galaxy S series and certified pre-owned handsets.",
+          // [Beckn Descriptor]
+          "longDesc": "Published by reseller BPP Muthu Mobiles. ION: trade identifiers. Samsung: handset specs only (no used/new semantics). Muthu: inventory condition, grading, new vs used — reseller extension only."
+        },
+        // Provider uses ION-owned retail outlet attributes only.
+        // [Beckn Catalog -> Provider]
+        "provider": {
+          // [Beckn Provider]
+          "id": "provider-muthu-chennai-main",
+          // [Beckn Provider -> Descriptor]
+          "descriptor": {
+            // [Beckn Descriptor]
+            "name": "Muthu Mobiles (Velachery)",
+            // [Beckn Descriptor]
+            "shortDesc": "Authorized reseller and refurbishment partner."
+          },
+          // [Beckn Provider -> providerAttributes (extension bag)]
+          "providerAttributes": {
+            // [Beckn Attributes]
+            // Attributes.@context is a STRING in Beckn OpenAPI.
+            "@context": "https://schema.ion.id/ns/2026/context/ion-retail-trade-item-v1.jsonld",
+            // [ION]
+            "@type": "RetailOutlet",
+            // [ION]
+            "tradeBrand": "MUTHU_RETAIL",
+            // [ION]
+            "retailSku": "STORE-CHN-VLR-001",
+            // [ION]
+            "tradeItemCategory": "RETAIL_STORE"
+          }
+        },
+        // [Beckn Catalog]
+        "resources": [
+          {
+            // [Beckn Resource]
+            "id": "res-samsung-s25-ultra-256-new-sealed-muthu-001",
+            // [Beckn Resource -> Descriptor]
+            "descriptor": {
+              // [Beckn Descriptor]
+              "name": "Samsung Galaxy S25 Ultra 256GB — Titanium Black (New, sealed)",
+              // [Beckn Descriptor]
+              "shortDesc": "Factory-sealed retail unit with Samsung India warranty."
+            },
+            // [Beckn Resource -> resourceAttributes (extension bag)]
+            "resourceAttributes": {
+              // Mode A (federated): point directly to Muthu's canonical context URL.
+              // That Muthu context document imports Beckn core + ION + Samsung and adds Muthu terms.
+              // Still a single URI string, preserving Beckn Attributes typing.
+              // [Beckn Attributes]
+              "@context": "https://reseller.muthu.example/ns/7a3f9c2d/context/muthu-reseller-phones-v1.jsonld",
+              // [Muthu]
+              "@type": "ResellerPhoneListing",
+
+              // ION trade layer (network-wide semantics)
+              // [ION]
+              "tradeBrand": "Samsung",
+              // [ION]
+              "retailSku": "SM-S938BZKHINS-256-TBK-NEW",
+              // [ION]
+              "tradeItemCategory": "RETAIL_HANDSET",
+
+              // Samsung OEM layer (device/product semantics only)
+              // [Samsung]
+              "handsetMarketingName": "Samsung Galaxy S25 Ultra",
+              // [Samsung]
+              "galaxySeries": "Galaxy S",
+              // [Samsung]
+              "modelNumber": "SM-S938B",
+              // [Samsung]
+              "oneUiVersion": "7.0",
+              // [Samsung]
+              "knoxMajorVersion": 38,
+
+              // Muthu reseller layer (inventory condition semantics)
+              // [Muthu]
+              "stockKind": "NEW",
+              // [Muthu]
+              "gradeLabel": "SEALED",
+              // [Muthu (mapped to schema.org IRI)]
+              "itemCondition": "https://schema.org/NewCondition",
+              // [Muthu]
+              "batteryHealthPercent": 100
+            }
+          },
+          {
+            // [Beckn Resource]
+            "id": "res-samsung-s25-ultra-256-used-mint-muthu-042",
+            // [Beckn Resource -> Descriptor]
+            "descriptor": {
+              // [Beckn Descriptor]
+              "name": "Samsung Galaxy S25 Ultra 256GB — Titanium Black (Open box, Mint)",
+              // [Beckn Descriptor]
+              "shortDesc": "7-day return unit; inspected; 99% battery health."
+            },
+            // [Beckn Resource -> resourceAttributes (extension bag)]
+            "resourceAttributes": {
+              // Same layered pattern as above; this row is used-mint inventory.
+              // [Beckn Attributes]
+              "@context": "https://reseller.muthu.example/ns/7a3f9c2d/context/muthu-reseller-phones-v1.jsonld",
+              // [Muthu]
+              "@type": "ResellerPhoneListing",
+              // [ION]
+              "tradeBrand": "Samsung",
+              // [ION]
+              "retailSku": "SM-S938BZKHINS-256-TBK-USED-MINT",
+              // [ION]
+              "tradeItemCategory": "RETAIL_HANDSET",
+              // [Samsung]
+              "handsetMarketingName": "Samsung Galaxy S25 Ultra",
+              // [Samsung]
+              "galaxySeries": "Galaxy S",
+              // [Samsung]
+              "modelNumber": "SM-S938B",
+              // [Samsung]
+              "oneUiVersion": "7.0",
+              // [Samsung]
+              "knoxMajorVersion": 38,
+              // [Muthu]
+              "stockKind": "USED",
+              // [Muthu]
+              "gradeLabel": "MINT",
+              // [Muthu (mapped to schema.org IRI)]
+              "itemCondition": "https://schema.org/UsedCondition",
+              // [Muthu]
+              "batteryHealthPercent": 99
+            }
+          },
+          {
+            // [Beckn Resource]
+            "id": "res-samsung-s25-ultra-256-damaged-muthu-099",
+            // [Beckn Resource -> Descriptor]
+            "descriptor": {
+              // [Beckn Descriptor]
+              "name": "Samsung Galaxy S25 Ultra 256GB — parts / damaged (sold as-is)",
+              // [Beckn Descriptor]
+              "shortDesc": "Cracked rear glass; display functional; for parts."
+            },
+            // [Beckn Resource -> resourceAttributes (extension bag)]
+            "resourceAttributes": {
+              // Same layered pattern as above; this row is damaged/as-is inventory.
+              // [Beckn Attributes]
+              "@context": "https://reseller.muthu.example/ns/7a3f9c2d/context/muthu-reseller-phones-v1.jsonld",
+              // [Muthu]
+              "@type": "ResellerPhoneListing",
+              // [ION]
+              "tradeBrand": "Samsung",
+              // [ION]
+              "retailSku": "SM-S938B-PARTS-ASIS",
+              // [ION]
+              "tradeItemCategory": "RETAIL_HANDSET",
+              // [Samsung]
+              "handsetMarketingName": "Samsung Galaxy S25 Ultra",
+              // [Samsung]
+              "galaxySeries": "Galaxy S",
+              // [Samsung]
+              "modelNumber": "SM-S938B",
+              // [Samsung]
+              "oneUiVersion": "7.0",
+              // [Samsung]
+              "knoxMajorVersion": 38,
+              // [Muthu]
+              "stockKind": "USED",
+              // [Muthu]
+              "gradeLabel": "DAMAGED",
+              // [Muthu (mapped to schema.org IRI)]
+              "itemCondition": "https://schema.org/DamagedCondition",
+              // [Muthu]
+              "batteryHealthPercent": 82
+            }
+          }
+        ],
+        // [Beckn Catalog]
+        "offers": [
+          {
+            // [Beckn Offer]
+            "id": "offer-s25u-256-new-muthu-001",
+            // [Beckn Offer -> Descriptor]
+            "descriptor": {
+              // [Beckn Descriptor]
+              "name": "List price — new sealed S25 Ultra 256GB",
+              // [Beckn Descriptor]
+              "code": "LIST"
+            },
+            // [Beckn Offer -> Provider]
+            "provider": {
+              // [Beckn Provider]
+              "id": "provider-muthu-chennai-main",
+              // [Beckn Provider -> Descriptor]
+              "descriptor": {
+                // [Beckn Descriptor]
+                "name": "Muthu Mobiles (Velachery)"
+              }
+            },
+            // [Beckn Offer]
+            "resourceIds": [
+              "res-samsung-s25-ultra-256-new-sealed-muthu-001"
+            ],
+            // [Beckn Offer]
+            "considerations": [
+              {
+                // [Beckn Consideration]
+                "id": "consideration-price-new-001",
+                // [Beckn Consideration -> status Descriptor]
+                "status": {
+                  // [Beckn Descriptor]
+                  "code": "PROPOSED",
+                  // [Beckn Descriptor]
+                  "name": "Listed sale consideration"
+                },
+                // [Beckn Consideration -> considerationAttributes (extension bag)]
+                "considerationAttributes": {
+                  // ION pricing extension for monetary details.
+                  // [Beckn Attributes]
+                  "@context": "https://schema.ion.id/ns/2026/context/ion-monetary-consideration-v1.jsonld",
+                  // [ION]
+                  "@type": "MonetaryConsiderationSpec",
+                  // [ION]
+                  "priceAmount": 134999.0,
+                  // [ION]
+                  "priceCurrency": "INR"
+                }
+              }
+            ],
+            // [Beckn Offer -> offerAttributes (extension bag)]
+            "offerAttributes": {
+              // Offer-level ION typing (optional extension bag).
+              // [Beckn Attributes]
+              "@context": "https://schema.ion.id/ns/2026/context/ion-retail-trade-item-v1.jsonld",
+              // [ION]
+              "@type": "RetailOffer",
+              // [ION]
+              "tradeItemCategory": "RETAIL_OFFER"
+            }
+          },
+          {
+            // [Beckn Offer]
+            "id": "offer-s25u-256-mint-muthu-042",
+            // [Beckn Offer -> Descriptor]
+            "descriptor": {
+              // [Beckn Descriptor]
+              "name": "Certified pre-owned — Mint S25 Ultra 256GB",
+              // [Beckn Descriptor]
+              "code": "LIST"
+            },
+            // [Beckn Offer -> Provider]
+            "provider": {
+              // [Beckn Provider]
+              "id": "provider-muthu-chennai-main",
+              // [Beckn Provider -> Descriptor]
+              "descriptor": {
+                // [Beckn Descriptor]
+                "name": "Muthu Mobiles (Velachery)"
+              }
+            },
+            // [Beckn Offer]
+            "resourceIds": [
+              "res-samsung-s25-ultra-256-used-mint-muthu-042"
+            ],
+            // [Beckn Offer]
+            "considerations": [
+              {
+                // [Beckn Consideration]
+                "id": "consideration-price-mint-042",
+                // [Beckn Consideration -> status Descriptor]
+                "status": {
+                  // [Beckn Descriptor]
+                  "code": "PROPOSED",
+                  // [Beckn Descriptor]
+                  "name": "Listed sale consideration"
+                },
+                // [Beckn Consideration -> considerationAttributes (extension bag)]
+                "considerationAttributes": {
+                  // [Beckn Attributes]
+                  "@context": "https://schema.ion.id/ns/2026/context/ion-monetary-consideration-v1.jsonld",
+                  // [ION]
+                  "@type": "MonetaryConsiderationSpec",
+                  // [ION]
+                  "priceAmount": 118500.0,
+                  // [ION]
+                  "priceCurrency": "INR"
+                }
+              }
+            ]
+          },
+          {
+            // [Beckn Offer]
+            "id": "offer-s25u-parts-muthu-099",
+            // [Beckn Offer -> Descriptor]
+            "descriptor": {
+              // [Beckn Descriptor]
+              "name": "As-is / parts pricing — damaged unit",
+              // [Beckn Descriptor]
+              "code": "LIST"
+            },
+            // [Beckn Offer -> Provider]
+            "provider": {
+              // [Beckn Provider]
+              "id": "provider-muthu-chennai-main",
+              // [Beckn Provider -> Descriptor]
+              "descriptor": {
+                // [Beckn Descriptor]
+                "name": "Muthu Mobiles (Velachery)"
+              }
+            },
+            // [Beckn Offer]
+            "resourceIds": [
+              "res-samsung-s25-ultra-256-damaged-muthu-099"
+            ],
+            // [Beckn Offer]
+            "considerations": [
+              {
+                // [Beckn Consideration]
+                "id": "consideration-price-damaged-099",
+                // [Beckn Consideration -> status Descriptor]
+                "status": {
+                  // [Beckn Descriptor]
+                  "code": "PROPOSED",
+                  // [Beckn Descriptor]
+                  "name": "Listed sale consideration"
+                },
+                // [Beckn Consideration -> considerationAttributes (extension bag)]
+                "considerationAttributes": {
+                  // [Beckn Attributes]
+                  "@context": "https://schema.ion.id/ns/2026/context/ion-monetary-consideration-v1.jsonld",
+                  // [ION]
+                  "@type": "MonetaryConsiderationSpec",
+                  // [ION]
+                  "priceAmount": 45999.0,
+                  // [ION]
+                  "priceCurrency": "INR"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

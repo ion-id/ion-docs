@@ -1,0 +1,223 @@
+{
+  "context": {
+    "domain": "retail:electronics:handsets",
+    "action": "catalog/publish",
+    "version": "2.0.0",
+    "bapId": "bap.example-aggregator.on.dedi",
+    "bapUri": "https://api.example-aggregator.example/beckn",
+    "bppId": "bpp.muthu-phones.example.on.dedi",
+    "bppUri": "https://api.muthu-phones.example/beckn",
+    "transactionId": "a3d7c89e-2c4a-4b2f-9e1d-6f8a0b2c4d6e",
+    "messageId": "f1e2d3c4-b5a6-7890-abcd-ef1234567890",
+    "networkId": "ion.network/retail-handset-indexer",
+    "timestamp": "2026-05-01T12:34:56.789Z",
+    "ttl": "PT30M",
+    "schemaContext": [
+      "https://schema.beckn.io/core/v2.0/context.jsonld",
+      "https://schema.ion.id/ns/2026/context/ion-retail-trade-item-v1.jsonld",
+      "https://schema.samsung.com/ion/retail/v1/context/smartphone-v1.jsonld",
+      "https://reseller.muthu.example/ns/7a3f9c2d/context/muthu-reseller-phones-v1.jsonld",
+      "https://schema.ion.id/ns/2026/context/ion-monetary-consideration-v1.jsonld"
+    ]
+  },
+  "message": {
+    "catalogs": [
+      {
+        "id": "catalog-muthu-smartphones-in-2026q2",
+        "bppId": "bpp.muthu-phones.example.on.dedi",
+        "bppUri": "https://api.muthu-phones.example/beckn",
+        "isActive": true,
+        "descriptor": {
+          "name": "Muthu Mobiles — Samsung smartphones (new & pre-owned)",
+          "shortDesc": "ION retail catalog: Galaxy S series and certified pre-owned handsets.",
+          "longDesc": "Published by reseller BPP Muthu Mobiles. ION: trade identifiers. Samsung: handset specs only (no used/new semantics). Muthu: inventory condition, grading, new vs used — reseller extension only."
+        },
+        "provider": {
+          "id": "provider-muthu-chennai-main",
+          "descriptor": {
+            "name": "Muthu Mobiles (Velachery)",
+            "shortDesc": "Authorized reseller and refurbishment partner."
+          },
+          "providerAttributes": {
+            "@context": "https://schema.ion.id/ns/2026/context/ion-retail-trade-item-v1.jsonld",
+            "@type": "RetailOutlet",
+            "tradeBrand": "MUTHU_RETAIL",
+            "retailSku": "STORE-CHN-VLR-001",
+            "tradeItemCategory": "RETAIL_STORE"
+          }
+        },
+        "resources": [
+          {
+            "id": "res-samsung-s25-ultra-256-new-sealed-muthu-001",
+            "descriptor": {
+              "name": "Samsung Galaxy S25 Ultra 256GB — Titanium Black (New, sealed)",
+              "shortDesc": "Factory-sealed retail unit with Samsung India warranty."
+            },
+            "resourceAttributes": {
+              "@context": "https://reseller.muthu.example/ns/7a3f9c2d/context/muthu-reseller-phones-v1.jsonld",
+              "@type": "ResellerPhoneListing",
+              "tradeBrand": "Samsung",
+              "retailSku": "SM-S938BZKHINS-256-TBK-NEW",
+              "tradeItemCategory": "RETAIL_HANDSET",
+              "handsetMarketingName": "Samsung Galaxy S25 Ultra",
+              "galaxySeries": "Galaxy S",
+              "modelNumber": "SM-S938B",
+              "oneUiVersion": "7.0",
+              "knoxMajorVersion": 38,
+              "stockKind": "NEW",
+              "gradeLabel": "SEALED",
+              "itemCondition": "https://schema.org/NewCondition",
+              "batteryHealthPercent": 100
+            }
+          },
+          {
+            "id": "res-samsung-s25-ultra-256-used-mint-muthu-042",
+            "descriptor": {
+              "name": "Samsung Galaxy S25 Ultra 256GB — Titanium Black (Open box, Mint)",
+              "shortDesc": "7-day return unit; inspected; 99% battery health."
+            },
+            "resourceAttributes": {
+              "@context": "https://reseller.muthu.example/ns/7a3f9c2d/context/muthu-reseller-phones-v1.jsonld",
+              "@type": "ResellerPhoneListing",
+              "tradeBrand": "Samsung",
+              "retailSku": "SM-S938BZKHINS-256-TBK-USED-MINT",
+              "tradeItemCategory": "RETAIL_HANDSET",
+              "handsetMarketingName": "Samsung Galaxy S25 Ultra",
+              "galaxySeries": "Galaxy S",
+              "modelNumber": "SM-S938B",
+              "oneUiVersion": "7.0",
+              "knoxMajorVersion": 38,
+              "stockKind": "USED",
+              "gradeLabel": "MINT",
+              "itemCondition": "https://schema.org/UsedCondition",
+              "batteryHealthPercent": 99
+            }
+          },
+          {
+            "id": "res-samsung-s25-ultra-256-damaged-muthu-099",
+            "descriptor": {
+              "name": "Samsung Galaxy S25 Ultra 256GB — parts / damaged (sold as-is)",
+              "shortDesc": "Cracked rear glass; display functional; for parts."
+            },
+            "resourceAttributes": {
+              "@context": "https://reseller.muthu.example/ns/7a3f9c2d/context/muthu-reseller-phones-v1.jsonld",
+              "@type": "ResellerPhoneListing",
+              "tradeBrand": "Samsung",
+              "retailSku": "SM-S938B-PARTS-ASIS",
+              "tradeItemCategory": "RETAIL_HANDSET",
+              "handsetMarketingName": "Samsung Galaxy S25 Ultra",
+              "galaxySeries": "Galaxy S",
+              "modelNumber": "SM-S938B",
+              "oneUiVersion": "7.0",
+              "knoxMajorVersion": 38,
+              "stockKind": "USED",
+              "gradeLabel": "DAMAGED",
+              "itemCondition": "https://schema.org/DamagedCondition",
+              "batteryHealthPercent": 82
+            }
+          }
+        ],
+        "offers": [
+          {
+            "id": "offer-s25u-256-new-muthu-001",
+            "descriptor": {
+              "name": "List price — new sealed S25 Ultra 256GB",
+              "code": "LIST"
+            },
+            "provider": {
+              "id": "provider-muthu-chennai-main",
+              "descriptor": {
+                "name": "Muthu Mobiles (Velachery)"
+              }
+            },
+            "resourceIds": [
+              "res-samsung-s25-ultra-256-new-sealed-muthu-001"
+            ],
+            "considerations": [
+              {
+                "id": "consideration-price-new-001",
+                "status": {
+                  "code": "PROPOSED",
+                  "name": "Listed sale consideration"
+                },
+                "considerationAttributes": {
+                  "@context": "https://schema.ion.id/ns/2026/context/ion-monetary-consideration-v1.jsonld",
+                  "@type": "MonetaryConsiderationSpec",
+                  "priceAmount": 134999.0,
+                  "priceCurrency": "INR"
+                }
+              }
+            ],
+            "offerAttributes": {
+              "@context": "https://schema.ion.id/ns/2026/context/ion-retail-trade-item-v1.jsonld",
+              "@type": "RetailOffer",
+              "tradeItemCategory": "RETAIL_OFFER"
+            }
+          },
+          {
+            "id": "offer-s25u-256-mint-muthu-042",
+            "descriptor": {
+              "name": "Certified pre-owned — Mint S25 Ultra 256GB",
+              "code": "LIST"
+            },
+            "provider": {
+              "id": "provider-muthu-chennai-main",
+              "descriptor": {
+                "name": "Muthu Mobiles (Velachery)"
+              }
+            },
+            "resourceIds": [
+              "res-samsung-s25-ultra-256-used-mint-muthu-042"
+            ],
+            "considerations": [
+              {
+                "id": "consideration-price-mint-042",
+                "status": {
+                  "code": "PROPOSED",
+                  "name": "Listed sale consideration"
+                },
+                "considerationAttributes": {
+                  "@context": "https://schema.ion.id/ns/2026/context/ion-monetary-consideration-v1.jsonld",
+                  "@type": "MonetaryConsiderationSpec",
+                  "priceAmount": 118500.0,
+                  "priceCurrency": "INR"
+                }
+              }
+            ]
+          },
+          {
+            "id": "offer-s25u-parts-muthu-099",
+            "descriptor": {
+              "name": "As-is / parts pricing — damaged unit",
+              "code": "LIST"
+            },
+            "provider": {
+              "id": "provider-muthu-chennai-main",
+              "descriptor": {
+                "name": "Muthu Mobiles (Velachery)"
+              }
+            },
+            "resourceIds": [
+              "res-samsung-s25-ultra-256-damaged-muthu-099"
+            ],
+            "considerations": [
+              {
+                "id": "consideration-price-damaged-099",
+                "status": {
+                  "code": "PROPOSED",
+                  "name": "Listed sale consideration"
+                },
+                "considerationAttributes": {
+                  "@context": "https://schema.ion.id/ns/2026/context/ion-monetary-consideration-v1.jsonld",
+                  "@type": "MonetaryConsiderationSpec",
+                  "priceAmount": 45999.0,
+                  "priceCurrency": "INR"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

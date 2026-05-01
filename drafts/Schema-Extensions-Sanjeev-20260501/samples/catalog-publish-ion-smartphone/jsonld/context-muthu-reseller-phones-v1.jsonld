@@ -1,0 +1,31 @@
+{
+  "@context": [
+    "https://schema.beckn.io/core/v2.0/context.jsonld",
+    "https://schema.ion.id/ns/2026/context/ion-retail-trade-item-v1.jsonld",
+    "https://schema.samsung.com/ion/retail/v1/context/smartphone-v1.jsonld",
+    {
+      "@version": 1.1,
+      "@protected": true,
+      "muthu": "https://reseller.muthu.example/ns/7a3f9c2d/vocab#",
+      "ResellerPhoneListing": "muthu:ResellerPhoneListing",
+      "stockKind": {
+        "@id": "muthu:stockKind",
+        "@type": "xsd:string"
+      },
+      "gradeLabel": {
+        "@id": "muthu:gradeLabel",
+        "@type": "xsd:string"
+      },
+      "batteryHealthPercent": {
+        "@id": "muthu:batteryHealthPercent",
+        "@type": "xsd:integer"
+      },
+      "schema": "https://schema.org/",
+      "itemCondition": {
+        "@id": "schema:itemCondition",
+        "@type": "@id"
+      },
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    }
+  ]
+}

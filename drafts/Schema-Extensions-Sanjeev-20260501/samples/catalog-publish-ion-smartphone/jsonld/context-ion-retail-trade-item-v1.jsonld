@@ -1,0 +1,23 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "ion": "https://schema.ion.id/ns/2026/vocab#",
+    "TradeRetailItem": "ion:TradeRetailItem",
+    "RetailOutlet": "ion:RetailOutlet",
+    "RetailOffer": "ion:RetailOffer",
+    "tradeBrand": {
+      "@id": "ion:tradeBrand",
+      "@type": "xsd:string"
+    },
+    "retailSku": {
+      "@id": "ion:retailSku",
+      "@type": "xsd:string"
+    },
+    "tradeItemCategory": {
+      "@id": "ion:tradeItemCategory",
+      "@type": "xsd:string"
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+}

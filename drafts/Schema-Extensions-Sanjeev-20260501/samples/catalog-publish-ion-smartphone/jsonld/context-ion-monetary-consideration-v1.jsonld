@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "ion": "https://schema.ion.id/ns/2026/vocab#",
+    "MonetaryConsiderationSpec": "ion:MonetaryConsiderationSpec",
+    "priceAmount": {
+      "@id": "ion:priceAmount",
+      "@type": "xsd:decimal"
+    },
+    "priceCurrency": {
+      "@id": "ion:priceCurrency",
+      "@type": "xsd:string"
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+}
