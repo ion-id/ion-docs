@@ -14,7 +14,7 @@ components:
       additionalProperties: false
       x-beckn-container: resourceAttributes
       x-jsonld:
-        "@context": "https://schema.ion.id/TradeResource/v2.1/context.jsonld"
+        "@context": "https://raw.githubusercontent.com/ion-id/ion-docs/refs/heads/ionAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResource/v2.1/context.jsonld"
         "@type": "rcra:TradeResource"
       properties:
         category:

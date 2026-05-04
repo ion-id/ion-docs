@@ -20,7 +20,7 @@ components:
       additionalProperties: true
       x-ion-container: ionAttributes
       x-jsonld:
-        "@context": "https://schema.ion.id/IONExtraAttributes/v2.1/context.jsonld"
+        "@context": "https://raw.githubusercontent.com/ion-id/ion-docs/refs/heads/ionAttributes/drafts/ionSchema/IONExtraAttributes/v2.1/context.jsonld"
         "@type": "ionx:IONExtraAttributes"
       required:
         - "@context"
