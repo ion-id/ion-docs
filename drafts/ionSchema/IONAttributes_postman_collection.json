@@ -1,0 +1,232 @@
+{
+  "info": {
+    "_postman_id": "059e63b5-a879-4c4a-a85d-6002090f92fa",
+    "name": "IONAttributes Example Messages",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31095695"
+  },
+  "item": [
+    {
+      "name": "beckn example publish - baseline",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"context\": {\n    \"version\": \"{{version}}\",\n    \"action\": \"catalog/publish\",\n    \"timestamp\": \"{{$isoTimestamp}}\",\n    \"messageId\": \"{{$guid}}\",\n    \"transactionId\": \"{{$randomUUID}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"ttl\": \"PT30S\",\n    \"networkId\": \"{{networkId}}\"\n  },\n\"message\": {\n    \"catalogs\": [\n      {\n        \"id\": \"catalog-hbo-001\",\n        \"bppId\": \"bpp.example.com\",\n        \"bppUri\": \"http://onix-bpp:8082/bpp/receiver\",\n        \"descriptor\": {\n          \"name\": \"HBO\",\n          \"shortDesc\": \"Electronics and home goods catalog\"\n        },\n        \"provider\": {\n          \"id\": \"provider-venky-bazaar\",\n          \"descriptor\": {\n            \"name\": \"Venky.Mahadevan@Bazaar\"\n          }\n        },\n        \"validity\": {\n          \"startDate\": \"2023-01-01T00:00:00Z\",\n          \"endDate\": \"2023-12-31T23:59:59Z\"\n        },\n        \"resources\": [\n          {\n            \"id\": \"item-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\",\n              \"shortDesc\": \"Double walled vacuum insulated stainless steel thermos flask, 500ml\",\n              \"mediaFile\": [\n                {\n                  \"label\": \"Product Image\",\n                  \"mimeType\": \"image/jpeg\",\n                  \"uri\": \"https://tourism-bpp-infra2.becknprotocol.io/attachments/view/253.jpg\"\n                }\n              ]\n            },\n            \"resourceAttributes\": {\n              \"@context\": \"https://raw.githubusercontent.com/beckn/local-retail/refs/heads/main/schema/RetailResource/v2.1/context.jsonld\",\n              \"@type\": \"RetailResource\",\n              \"identity\": {\n                \"brand\": \"InstaCuppa\",\n                \"originCountry\": \"IN\"\n              },\n              \"physical\": {\n                \"weight\": {\n                  \"unitCode\": \"G\",\n                  \"unitQuantity\": 350\n                },\n                \"volume\": {\n                  \"unitCode\": \"ML\",\n                  \"unitQuantity\": 500\n                },\n                \"dimensions\": {\n                  \"unit\": \"CM\",\n                  \"length\": 25,\n                  \"breadth\": 7,\n                  \"height\": 7\n                },\n                \"appearance\": {\n                  \"color\": \"Yellow\",\n                  \"material\": \"Stainless Steel\",\n                  \"finish\": \"Matte\"\n                }\n              },\n              \"packagedGoodsDeclaration\": {\n                \"manufacturerOrPacker\": {\n                  \"type\": \"MANUFACTURER\",\n                  \"name\": \"InstaCuppa India Pvt Ltd\",\n                  \"address\": \"Bangalore, Karnataka, IN\"\n                },\n                \"commonOrGenericName\": \"Stainless Steel Vacuum Flask\",\n                \"netQuantity\": {\n                  \"unitCode\": \"ML\",\n                  \"unitQuantity\": 500\n                }\n              }\n            }\n          }\n        ],\n        \"offers\": [\n          {\n            \"id\": \"offer-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\"\n            },\n            \"resourceIds\": [\n              \"item-flask-mh500-yellow\"\n            ],\n            \"provider\": {\n              \"id\": \"provider-venky-bazaar\",\n              \"descriptor\": {\n                \"name\": \"Venky.Mahadevan@Bazaar\"\n              }\n            },\n            \"validity\": {\n              \"startDate\": \"2023-01-01T00:00:00Z\",\n              \"endDate\": \"2023-12-31T23:59:59Z\"\n            },\n            \"offerAttributes\": {\n              \"@context\": \"https://raw.githubusercontent.com/beckn/local-retail/refs/heads/main/schema/RetailOffer/v2.1/context.jsonld\",\n              \"@type\": \"RetailOffer\",\n              \"policies\": {\n                \"returns\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\"\n                },\n                \"cancellation\": {\n                  \"allowed\": true,\n                  \"window\": \"PT2H\",\n                  \"cutoffEvent\": \"BEFORE_PACKING\"\n                },\n                \"replacement\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\",\n                  \"subjectToAvailability\": true\n                }\n              },\n              \"paymentConstraints\": {\n                \"codAvailable\": true\n              },\n              \"serviceability\": {\n                \"distanceConstraint\": {\n                  \"maxDistance\": 15,\n                  \"unit\": \"KM\"\n                },\n                \"timing\": [\n                  {\n                    \"daysOfWeek\": [\n                      \"MON\",\n                      \"TUE\",\n                      \"WED\",\n                      \"THU\",\n                      \"FRI\",\n                      \"SAT\",\n                      \"SUN\"\n                    ],\n                    \"timeRange\": {\n                      \"start\": \"09:00\",\n                      \"end\": \"21:00\"\n                    }\n                  }\n                ]\n              }\n            }\n          }\n        ]\n      }\n    ]\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{bpp_adapter_url}}/publish",
+          "host": [
+            "{{bpp_adapter_url}}"
+          ],
+          "path": [
+            "publish"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "publishWithIONAttributesWithNoExtraAttributes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"context\": {\n    \"version\": \"{{version}}\",\n    \"action\": \"catalog/publish\",\n    \"timestamp\": \"{{$isoTimestamp}}\",\n    \"messageId\": \"{{$guid}}\",\n    \"transactionId\": \"{{$randomUUID}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"ttl\": \"PT30S\",\n    \"networkId\": \"{{networkId}}\"\n  },\n\"message\": {\n    \"catalogs\": [\n      {\n        \"id\": \"catalog-hbo-001\",\n        \"bppId\": \"bpp.example.com\",\n        \"bppUri\": \"http://onix-bpp:8082/bpp/receiver\",\n        \"descriptor\": {\n          \"name\": \"HBO\",\n          \"shortDesc\": \"Electronics and home goods catalog\"\n        },\n        \"provider\": {\n          \"id\": \"provider-venky-bazaar\",\n          \"descriptor\": {\n            \"name\": \"Venky.Mahadevan@Bazaar\"\n          }\n        },\n        \"validity\": {\n          \"startDate\": \"2023-01-01T00:00:00Z\",\n          \"endDate\": \"2023-12-31T23:59:59Z\"\n        },\n        \"resources\": [\n          {\n            \"id\": \"item-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\",\n              \"shortDesc\": \"Double walled vacuum insulated stainless steel thermos flask, 500ml\",\n              \"mediaFile\": [\n                {\n                  \"label\": \"Product Image\",\n                  \"mimeType\": \"image/jpeg\",\n                  \"uri\": \"https://tourism-bpp-infra2.becknprotocol.io/attachments/view/253.jpg\"\n                }\n              ]\n            },\n            \"resourceAttributes\": {\n              \"@context\": \"https://raw.githubusercontent.com/ion-id/ion-docs/refs/heads/ionAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResource/v2.1/context.jsonld\", \n              \"@type\": \"TradeResource\",\n              \"identity\": {\n                \"brand\": \"InstaCuppa\",\n                \"originCountry\": \"IN\"\n              }\n            }\n          }\n        ],\n        \"offers\": [\n          {\n            \"id\": \"offer-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\"\n            },\n            \"resourceIds\": [\n              \"item-flask-mh500-yellow\"\n            ],\n            \"provider\": {\n              \"id\": \"provider-venky-bazaar\",\n              \"descriptor\": {\n                \"name\": \"Venky.Mahadevan@Bazaar\"\n              }\n            },\n            \"validity\": {\n              \"startDate\": \"2023-01-01T00:00:00Z\",\n              \"endDate\": \"2023-12-31T23:59:59Z\"\n            },\n            \"offerAttributes\": {\n              \"@context\": \"https://raw.githubusercontent.com/beckn/local-retail/refs/heads/main/schema/RetailOffer/v2.1/context.jsonld\",\n              \"@type\": \"RetailOffer\",\n              \"policies\": {\n                \"returns\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\"\n                },\n                \"cancellation\": {\n                  \"allowed\": true,\n                  \"window\": \"PT2H\",\n                  \"cutoffEvent\": \"BEFORE_PACKING\"\n                },\n                \"replacement\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\",\n                  \"subjectToAvailability\": true\n                }\n              },\n              \"paymentConstraints\": {\n                \"codAvailable\": true\n              },\n              \"serviceability\": {\n                \"distanceConstraint\": {\n                  \"maxDistance\": 15,\n                  \"unit\": \"KM\"\n                },\n                \"timing\": [\n                  {\n                    \"daysOfWeek\": [\n                      \"MON\",\n                      \"TUE\",\n                      \"WED\",\n                      \"THU\",\n                      \"FRI\",\n                      \"SAT\",\n                      \"SUN\"\n                    ],\n                    \"timeRange\": {\n                      \"start\": \"09:00\",\n                      \"end\": \"21:00\"\n                    }\n                  }\n                ]\n              }\n            }\n          }\n        ]\n      }\n    ]\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{bpp_adapter_url}}/publish",
+          "host": [
+            "{{bpp_adapter_url}}"
+          ],
+          "path": [
+            "publish"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "publishWithIONAttributesExtraFieldsAtTradeResourceLevel",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"context\": {\n    \"version\": \"{{version}}\",\n    \"action\": \"catalog/publish\",\n    \"timestamp\": \"{{$isoTimestamp}}\",\n    \"messageId\": \"{{$guid}}\",\n    \"transactionId\": \"{{$randomUUID}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"ttl\": \"PT30S\",\n    \"networkId\": \"{{networkId}}\"\n  },\n\"message\": {\n    \"catalogs\": [\n      {\n        \"id\": \"catalog-hbo-001\",\n        \"bppId\": \"bpp.example.com\",\n        \"bppUri\": \"http://onix-bpp:8082/bpp/receiver\",\n        \"descriptor\": {\n          \"name\": \"HBO\",\n          \"shortDesc\": \"Electronics and home goods catalog\"\n        },\n        \"provider\": {\n          \"id\": \"provider-venky-bazaar\",\n          \"descriptor\": {\n            \"name\": \"Venky.Mahadevan@Bazaar\"\n          }\n        },\n        \"validity\": {\n          \"startDate\": \"2023-01-01T00:00:00Z\",\n          \"endDate\": \"2023-12-31T23:59:59Z\"\n        },\n        \"resources\": [\n          {\n            \"id\": \"item-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\",\n              \"shortDesc\": \"Double walled vacuum insulated stainless steel thermos flask, 500ml\",\n              \"mediaFile\": [\n                {\n                  \"label\": \"Product Image\",\n                  \"mimeType\": \"image/jpeg\",\n                  \"uri\": \"https://tourism-bpp-infra2.becknprotocol.io/attachments/view/253.jpg\"\n                }\n              ]\n            },\n            \"resourceAttributes\": {\n              \"@context\": \"https://raw.githubusercontent.com/ion-id/ion-docs/refs/heads/ionAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResource/v2.1/context.jsonld\", \n              \"@type\": \"TradeResource\",\n              \"identity\": {\n                \"brand\": \"InstaCuppa\",\n                \"originCountry\": \"IN\"\n              },\n              \"physical\": {\n                \"weight\": {\n                  \"unitCode\": \"G\",\n                  \"unitQuantity\": 350\n                },\n                \"volume\": {\n                  \"unitCode\": \"ML\",\n                  \"unitQuantity\": 500\n                },\n                \"dimensions\": {\n                  \"unit\": \"CM\",\n                  \"length\": 25,\n                  \"breadth\": 7,\n                  \"height\": 7\n                },\n                \"appearance\": {\n                  \"color\": \"Yellow\",\n                  \"material\": \"Stainless Steel\",\n                  \"finish\": \"Matte\"\n                }\n              }\n            }\n          }\n        ],\n        \"offers\": [\n          {\n            \"id\": \"offer-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\"\n            },\n            \"resourceIds\": [\n              \"item-flask-mh500-yellow\"\n            ],\n            \"provider\": {\n              \"id\": \"provider-venky-bazaar\",\n              \"descriptor\": {\n                \"name\": \"Venky.Mahadevan@Bazaar\"\n              }\n            },\n            \"validity\": {\n              \"startDate\": \"2023-01-01T00:00:00Z\",\n              \"endDate\": \"2023-12-31T23:59:59Z\"\n            },\n            \"offerAttributes\": {\n              \"@context\": \"https://raw.githubusercontent.com/beckn/local-retail/refs/heads/main/schema/RetailOffer/v2.1/context.jsonld\",\n              \"@type\": \"RetailOffer\",\n              \"policies\": {\n                \"returns\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\"\n                },\n                \"cancellation\": {\n                  \"allowed\": true,\n                  \"window\": \"PT2H\",\n                  \"cutoffEvent\": \"BEFORE_PACKING\"\n                },\n                \"replacement\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\",\n                  \"subjectToAvailability\": true\n                }\n              },\n              \"paymentConstraints\": {\n                \"codAvailable\": true\n              },\n              \"serviceability\": {\n                \"distanceConstraint\": {\n                  \"maxDistance\": 15,\n                  \"unit\": \"KM\"\n                },\n                \"timing\": [\n                  {\n                    \"daysOfWeek\": [\n                      \"MON\",\n                      \"TUE\",\n                      \"WED\",\n                      \"THU\",\n                      \"FRI\",\n                      \"SAT\",\n                      \"SUN\"\n                    ],\n                    \"timeRange\": {\n                      \"start\": \"09:00\",\n                      \"end\": \"21:00\"\n                    }\n                  }\n                ]\n              }\n            }\n          }\n        ]\n      }\n    ]\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{bpp_adapter_url}}/publish",
+          "host": [
+            "{{bpp_adapter_url}}"
+          ],
+          "path": [
+            "publish"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "publishWithIONAttributesExtraFieldsAtOneLevelBelowTradeResource",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"context\": {\n    \"version\": \"{{version}}\",\n    \"action\": \"catalog/publish\",\n    \"timestamp\": \"{{$isoTimestamp}}\",\n    \"messageId\": \"{{$guid}}\",\n    \"transactionId\": \"{{$randomUUID}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"ttl\": \"PT30S\",\n    \"networkId\": \"{{networkId}}\"\n  },\n\"message\": {\n    \"catalogs\": [\n      {\n        \"id\": \"catalog-hbo-001\",\n        \"bppId\": \"bpp.example.com\",\n        \"bppUri\": \"http://onix-bpp:8082/bpp/receiver\",\n        \"descriptor\": {\n          \"name\": \"HBO\",\n          \"shortDesc\": \"Electronics and home goods catalog\"\n        },\n        \"provider\": {\n          \"id\": \"provider-venky-bazaar\",\n          \"descriptor\": {\n            \"name\": \"Venky.Mahadevan@Bazaar\"\n          }\n        },\n        \"validity\": {\n          \"startDate\": \"2023-01-01T00:00:00Z\",\n          \"endDate\": \"2023-12-31T23:59:59Z\"\n        },\n        \"resources\": [\n          {\n            \"id\": \"item-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\",\n              \"shortDesc\": \"Double walled vacuum insulated stainless steel thermos flask, 500ml\",\n              \"mediaFile\": [\n                {\n                  \"label\": \"Product Image\",\n                  \"mimeType\": \"image/jpeg\",\n                  \"uri\": \"https://tourism-bpp-infra2.becknprotocol.io/attachments/view/253.jpg\"\n                }\n              ]\n            },\n            \"resourceAttributes\": {\n              \"@context\": \"https://raw.githubusercontent.com/ion-id/ion-docs/refs/heads/ionAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResource/v2.1/context.jsonld\", \n              \"@type\": \"TradeResource\",\n              \"identity\": {\n                \"brand\": \"InstaCuppa\",\n                \"originCountry\": \"IN\"\n              },\n              \"extraAttributes\":{\n                \"@context\": \"https://raw.githubusercontent.com/beckn/local-retail/refs/heads/main/schema/RetailResource/v2.1/context.jsonld\",\n                \"@type\": \"RetailResource\",                \n                \"physical\": {\n                    \"weight\": {\n                    \"unitCode\": \"G\",\n                    \"unitQuantity\": 350\n                    },\n                    \"volume\": {\n                    \"unitCode\": \"ML\",\n                    \"unitQuantity\": 500\n                    },\n                    \"dimensions\": {\n                    \"unit\": \"CM\",\n                    \"length\": 25,\n                    \"breadth\": 7,\n                    \"height\": 7\n                    },\n                    \"appearance\": {\n                    \"color\": \"Yellow\",\n                    \"material\": \"Stainless Steel\",\n                    \"finish\": \"Matte\"\n                    }\n                }\n              }\n            }\n          }\n        ],\n        \"offers\": [\n          {\n            \"id\": \"offer-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\"\n            },\n            \"resourceIds\": [\n              \"item-flask-mh500-yellow\"\n            ],\n            \"provider\": {\n              \"id\": \"provider-venky-bazaar\",\n              \"descriptor\": {\n                \"name\": \"Venky.Mahadevan@Bazaar\"\n              }\n            },\n            \"validity\": {\n              \"startDate\": \"2023-01-01T00:00:00Z\",\n              \"endDate\": \"2023-12-31T23:59:59Z\"\n            },\n            \"offerAttributes\": {\n              \"@context\": \"https://raw.githubusercontent.com/beckn/local-retail/refs/heads/main/schema/RetailOffer/v2.1/context.jsonld\",\n              \"@type\": \"RetailOffer\",\n              \"policies\": {\n                \"returns\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\"\n                },\n                \"cancellation\": {\n                  \"allowed\": true,\n                  \"window\": \"PT2H\",\n                  \"cutoffEvent\": \"BEFORE_PACKING\"\n                },\n                \"replacement\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\",\n                  \"subjectToAvailability\": true\n                }\n              },\n              \"paymentConstraints\": {\n                \"codAvailable\": true\n              },\n              \"serviceability\": {\n                \"distanceConstraint\": {\n                  \"maxDistance\": 15,\n                  \"unit\": \"KM\"\n                },\n                \"timing\": [\n                  {\n                    \"daysOfWeek\": [\n                      \"MON\",\n                      \"TUE\",\n                      \"WED\",\n                      \"THU\",\n                      \"FRI\",\n                      \"SAT\",\n                      \"SUN\"\n                    ],\n                    \"timeRange\": {\n                      \"start\": \"09:00\",\n                      \"end\": \"21:00\"\n                    }\n                  }\n                ]\n              }\n            }\n          }\n        ]\n      }\n    ]\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{bpp_adapter_url}}/publish",
+          "host": [
+            "{{bpp_adapter_url}}"
+          ],
+          "path": [
+            "publish"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "publishWithIONAttributesWithContextOverrideAtBaseLevel",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"context\": {\n    \"version\": \"{{version}}\",\n    \"action\": \"catalog/publish\",\n    \"timestamp\": \"{{$isoTimestamp}}\",\n    \"messageId\": \"{{$guid}}\",\n    \"transactionId\": \"{{$randomUUID}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"ttl\": \"PT30S\",\n    \"networkId\": \"{{networkId}}\"\n  },\n\"message\": {\n    \"catalogs\": [\n      {\n        \"id\": \"catalog-hbo-001\",\n        \"bppId\": \"bpp.example.com\",\n        \"bppUri\": \"http://onix-bpp:8082/bpp/receiver\",\n        \"descriptor\": {\n          \"name\": \"HBO\",\n          \"shortDesc\": \"Electronics and home goods catalog\"\n        },\n        \"provider\": {\n          \"id\": \"provider-venky-bazaar\",\n          \"descriptor\": {\n            \"name\": \"Venky.Mahadevan@Bazaar\"\n          }\n        },\n        \"validity\": {\n          \"startDate\": \"2023-01-01T00:00:00Z\",\n          \"endDate\": \"2023-12-31T23:59:59Z\"\n        },\n        \"resources\": [\n          {\n            \"id\": \"item-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\",\n              \"shortDesc\": \"Double walled vacuum insulated stainless steel thermos flask, 500ml\",\n              \"mediaFile\": [\n                {\n                  \"label\": \"Product Image\",\n                  \"mimeType\": \"image/jpeg\",\n                  \"uri\": \"https://tourism-bpp-infra2.becknprotocol.io/attachments/view/253.jpg\"\n                }\n              ]\n            },\n            \"resourceAttributes\": {\n              \"@context\": \"https://schema.beckn.io/GroceryResource/v2.1/context.jsonld\", \n              \"@type\": \"GroceryResource\",\n              \"identity\": {\n                \"brand\": \"InstaCuppa\",\n                \"originCountry\": \"IN\"\n              }\n            }\n          }\n        ],\n        \"offers\": [\n          {\n            \"id\": \"offer-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\"\n            },\n            \"resourceIds\": [\n              \"item-flask-mh500-yellow\"\n            ],\n            \"provider\": {\n              \"id\": \"provider-venky-bazaar\",\n              \"descriptor\": {\n                \"name\": \"Venky.Mahadevan@Bazaar\"\n              }\n            },\n            \"validity\": {\n              \"startDate\": \"2023-01-01T00:00:00Z\",\n              \"endDate\": \"2023-12-31T23:59:59Z\"\n            },\n            \"offerAttributes\": {\n              \"@context\": \"https://raw.githubusercontent.com/beckn/local-retail/refs/heads/main/schema/RetailOffer/v2.1/context.jsonld\",\n              \"@type\": \"RetailOffer\",\n              \"policies\": {\n                \"returns\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\"\n                },\n                \"cancellation\": {\n                  \"allowed\": true,\n                  \"window\": \"PT2H\",\n                  \"cutoffEvent\": \"BEFORE_PACKING\"\n                },\n                \"replacement\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\",\n                  \"subjectToAvailability\": true\n                }\n              },\n              \"paymentConstraints\": {\n                \"codAvailable\": true\n              },\n              \"serviceability\": {\n                \"distanceConstraint\": {\n                  \"maxDistance\": 15,\n                  \"unit\": \"KM\"\n                },\n                \"timing\": [\n                  {\n                    \"daysOfWeek\": [\n                      \"MON\",\n                      \"TUE\",\n                      \"WED\",\n                      \"THU\",\n                      \"FRI\",\n                      \"SAT\",\n                      \"SUN\"\n                    ],\n                    \"timeRange\": {\n                      \"start\": \"09:00\",\n                      \"end\": \"21:00\"\n                    }\n                  }\n                ]\n              }\n            }\n          }\n        ]\n      }\n    ]\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{bpp_adapter_url}}/publish",
+          "host": [
+            "{{bpp_adapter_url}}"
+          ],
+          "path": [
+            "publish"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "publishWithIONAttributesWithContextOverrideAtExtraAttributesLevel",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"context\": {\n    \"version\": \"{{version}}\",\n    \"action\": \"catalog/publish\",\n    \"timestamp\": \"{{$isoTimestamp}}\",\n    \"messageId\": \"{{$guid}}\",\n    \"transactionId\": \"{{$randomUUID}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"ttl\": \"PT30S\",\n    \"networkId\": \"{{networkId}}\"\n  },\n\"message\": {\n    \"catalogs\": [\n      {\n        \"id\": \"catalog-hbo-001\",\n        \"bppId\": \"bpp.example.com\",\n        \"bppUri\": \"http://onix-bpp:8082/bpp/receiver\",\n        \"descriptor\": {\n          \"name\": \"HBO\",\n          \"shortDesc\": \"Electronics and home goods catalog\"\n        },\n        \"provider\": {\n          \"id\": \"provider-venky-bazaar\",\n          \"descriptor\": {\n            \"name\": \"Venky.Mahadevan@Bazaar\"\n          }\n        },\n        \"validity\": {\n          \"startDate\": \"2023-01-01T00:00:00Z\",\n          \"endDate\": \"2023-12-31T23:59:59Z\"\n        },\n        \"resources\": [\n          {\n            \"id\": \"item-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\",\n              \"shortDesc\": \"Double walled vacuum insulated stainless steel thermos flask, 500ml\",\n              \"mediaFile\": [\n                {\n                  \"label\": \"Product Image\",\n                  \"mimeType\": \"image/jpeg\",\n                  \"uri\": \"https://tourism-bpp-infra2.becknprotocol.io/attachments/view/253.jpg\"\n                }\n              ]\n            },\n            \"resourceAttributes\": {\n              \"@context\": \"https://raw.githubusercontent.com/ion-id/ion-docs/refs/heads/ionAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResource/v2.1/context.jsonld\", \n              \"@type\": \"TradeResource\",\n              \"identity\": {\n                \"brand\": \"InstaCuppa\",\n                \"originCountry\": \"IN\"\n              },\n              \"extraAttributes\":{\n                \"@context\": \"https://schema.beckn.io/GroceryResource/v2.1/context.jsonld\", \n                \"@type\": \"GroceryResource\"\n              }\n            }\n          }\n        ],\n        \"offers\": [\n          {\n            \"id\": \"offer-flask-mh500-yellow\",\n            \"descriptor\": {\n              \"name\": \"Isothermal Stainless Steel Hiking Flask MH500 Yellow\"\n            },\n            \"resourceIds\": [\n              \"item-flask-mh500-yellow\"\n            ],\n            \"provider\": {\n              \"id\": \"provider-venky-bazaar\",\n              \"descriptor\": {\n                \"name\": \"Venky.Mahadevan@Bazaar\"\n              }\n            },\n            \"validity\": {\n              \"startDate\": \"2023-01-01T00:00:00Z\",\n              \"endDate\": \"2023-12-31T23:59:59Z\"\n            },\n            \"offerAttributes\": {\n              \"@context\": \"https://raw.githubusercontent.com/beckn/local-retail/refs/heads/main/schema/RetailOffer/v2.1/context.jsonld\",\n              \"@type\": \"RetailOffer\",\n              \"policies\": {\n                \"returns\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\"\n                },\n                \"cancellation\": {\n                  \"allowed\": true,\n                  \"window\": \"PT2H\",\n                  \"cutoffEvent\": \"BEFORE_PACKING\"\n                },\n                \"replacement\": {\n                  \"allowed\": true,\n                  \"window\": \"P7D\",\n                  \"method\": \"SELLER_PICKUP\",\n                  \"subjectToAvailability\": true\n                }\n              },\n              \"paymentConstraints\": {\n                \"codAvailable\": true\n              },\n              \"serviceability\": {\n                \"distanceConstraint\": {\n                  \"maxDistance\": 15,\n                  \"unit\": \"KM\"\n                },\n                \"timing\": [\n                  {\n                    \"daysOfWeek\": [\n                      \"MON\",\n                      \"TUE\",\n                      \"WED\",\n                      \"THU\",\n                      \"FRI\",\n                      \"SAT\",\n                      \"SUN\"\n                    ],\n                    \"timeRange\": {\n                      \"start\": \"09:00\",\n                      \"end\": \"21:00\"\n                    }\n                  }\n                ]\n              }\n            }\n          }\n        ]\n      }\n    ]\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{bpp_adapter_url}}/publish",
+          "host": [
+            "{{bpp_adapter_url}}"
+          ],
+          "path": [
+            "publish"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "version",
+      "value": "2.0.0"
+    },
+    {
+      "key": "networkId",
+      "value": "beckn.one/testnet-retail"
+    },
+    {
+      "key": "bapId",
+      "value": "sandbox.food-finder.com"
+    },
+    {
+      "key": "bapUri",
+      "value": "http://onix-bap:8081/bap/receiver"
+    },
+    {
+      "key": "bppId",
+      "value": "sandbox.open-kitchen.com"
+    },
+    {
+      "key": "bppUri",
+      "value": "http://onix-bpp:8082/bpp/receiver"
+    },
+    {
+      "key": "transaction_id",
+      "value": "8100d125-76a7-4588-88be-81b97657cd09"
+    },
+    {
+      "key": "publish_transaction_id",
+      "value": "pub-txn-001-venky-bazaar"
+    },
+    {
+      "key": "bap_adapter_url",
+      "value": "http://localhost:8081/bap/caller"
+    },
+    {
+      "key": "bpp_adapter_url",
+      "value": "http://localhost:8082/bpp/caller"
+    }
+  ]
+}
