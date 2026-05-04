@@ -36,6 +36,6 @@ components:
               x-jsonld-id: "rcra:originCountry"
         extraAttributes:
           allOf:
-            - $ref: "../../IONExtraAttributes/v2.1/attributes.yaml#/components/schemas/IONExtraAttributes"
+            - $ref: "https://raw.githubusercontent.com/ion-id/ion-docs/refs/heads/ionAttributes/drafts/ionSchema/IONExtraAttributes/v2.1/attributes.yaml#/components/schemas/IONExtraAttributes"
           description: NP-specific JSON-LD aware extra attributes for the resource
           x-jsonld-id: "rcra:extraAttributes"
