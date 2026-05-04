@@ -1,0 +1,51 @@
+{
+  "name": "IONExtraAttributes",
+  "title": "ION Extra Attributes",
+  "description": "JSON-LD aware container for NP-specific attributes of a class. MUST include @context (URI) and @type (compact or full IRI). Any additional properties are allowed and interpreted per the provided JSON-LD context.",
+  "namespace_prefix": "ionx",
+  "namespace_uri": "https://schema.beckn.io/IONExtraAttributes#",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "container": "extraAttributes",
+  "root_schema": "IONExtraAttributes",
+  "version": "2.1.0",
+  "schema_file": "attributes.yaml",
+  "context_file": "context.jsonld",
+  "vocab_file": "vocab.jsonld",
+  "renderer_file": "renderer.json",
+  "included_schemas": [
+    "IONExtraAttributes"
+  ],
+  "discovery_fields": [
+    "@context",
+    "@type"
+  ],
+  "indexable_paths": [
+    "beckn:extraAttributes.@context",
+    "beckn:extraAttributes.@type"
+  ],
+  "filterable_attributes": [
+    {
+      "path": "extraAttributes.@context",
+      "type": "string",
+      "operators": [
+        "eq"
+      ]
+    },
+    {
+      "path": "extraAttributes.@type",
+      "type": "string",
+      "operators": [
+        "eq"
+      ]
+    }
+  ],
+  "sortable_paths": [],
+  "privacy_notes": [
+    "Additional properties are unconstrained by this schema and may contain sensitive NP-specific data depending on the supplied context."
+  ],
+  "metadata": {
+    "domain": "generic",
+    "status": "draft"
+  }
+}

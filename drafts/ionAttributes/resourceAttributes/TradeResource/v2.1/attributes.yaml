@@ -1,0 +1,41 @@
+openapi: 3.1.1
+info:
+  title: Trade Resource Attributes (v2.1)
+  version: 2.1.0
+  description: >
+    Attribute schema for trade resources. Attaches to beckn:Resource through
+    resourceAttributes.
+paths: {}
+components:
+  schemas:
+    TradeResource:
+      type: object
+      description: Attribute container for trade resource facts.
+      additionalProperties: false
+      x-beckn-container: resourceAttributes
+      x-jsonld:
+        "@context": "https://schema.ion.id/TradeResource/v2.1/context.jsonld"
+        "@type": "rcra:TradeResource"
+      properties:
+        category:
+          allOf:
+            - $ref: "https://schema.beckn.io/CategoryCode/2.0#/components/schemas/CategoryCode"
+          description: Taxonomy category code for the resource
+          x-jsonld-id: ":category"
+        identity:
+          type: object
+          additionalProperties: false
+          x-jsonld-id: "rcra:identity"
+          properties:
+            brand:
+              type: string
+              x-jsonld-id: "rcra:brand"
+            originCountry:
+              type: string
+              description: ISO 3166-1 alpha-2 recommended
+              x-jsonld-id: "rcra:originCountry"
+        extraAttributes:
+          allOf:
+            - $ref: "../../IONExtraAttributes/v2.1/attributes.yaml#/components/schemas/IONExtraAttributes"
+          description: NP-specific JSON-LD aware extra attributes for the resource
+          x-jsonld-id: "rcra:extraAttributes"

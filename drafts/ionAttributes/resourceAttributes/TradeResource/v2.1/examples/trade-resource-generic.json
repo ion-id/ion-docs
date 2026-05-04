@@ -1,0 +1,43 @@
+{
+  "context": {
+    "domain": "ONDC:RET10",
+    "country": "IND",
+    "city": "std:080",
+    "action": "on_discover",
+    "core_version": "1.2.0",
+    "bap_id": "bap.example.com",
+    "bap_uri": "https://bap.example.com/protocol",
+    "bpp_id": "bpp.example.com",
+    "bpp_uri": "https://bpp.example.com/protocol",
+    "transaction_id": "txn-trade-resource-001",
+    "message_id": "msg-trade-resource-001",
+    "timestamp": "2026-05-03T10:30:00Z"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "resources": [
+          {
+            "id": "resource:trade:001",
+            "descriptor": {
+              "name": "Example Trade Resource"
+            },
+            "resourceAttributes": {
+              "category": "PACKAGED_GOODS",
+              "identity": {
+                "brand": "Example Brand",
+                "originCountry": "IN"
+              },
+              "extraAttributes": {
+                "@context": "https://np.example.com/contexts/trade-resource-extra/v1.jsonld",
+                "@type": "np:TradeResourceExtraProperties",
+                "np:hazardClass": "none",
+                "np:exportReady": true
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "ionx": "https://schema.beckn.io/IONExtraAttributes#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "ionx:IONExtraAttributes",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ION Extra Attributes",
+      "rdfs:comment": "JSON-LD aware container for NP-specific attributes of a class."
+    },
+    {
+      "@id": "ionx:context",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Context",
+      "rdfs:comment": "NP specified JSON-LD context URI."
+    },
+    {
+      "@id": "ionx:type",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Type",
+      "rdfs:comment": "JSON-LD type defined within the context."
+    }
+  ]
+}

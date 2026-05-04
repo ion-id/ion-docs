@@ -1,0 +1,28 @@
+{
+  "version": "2.1.0",
+  "schema_version": "2.1.0",
+  "domain": "TradeResource",
+  "container": "resourceAttributes",
+  "renderers": [
+    {
+      "field": "category",
+      "type": "text",
+      "display_name": "Category",
+      "priority": 1
+    },
+    {
+      "field": "identity.brand",
+      "type": "text",
+      "display_name": "Brand",
+      "priority": 2
+    },
+    {
+      "field": "identity.originCountry",
+      "type": "text",
+      "display_name": "Origin Country",
+      "priority": 3
+    }
+  ],
+  "summary_template": "{{identity.brand}} - {{category}}",
+  "detail_template": "Category: {{category}}; Brand: {{identity.brand}}; Origin: {{identity.originCountry}}"
+}

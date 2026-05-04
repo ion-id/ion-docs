@@ -1,0 +1,66 @@
+{
+  "name": "TradeResource",
+  "title": "Trade Resource Attributes",
+  "description": "Attribute schema for trade resources with category, identity, and NP-specific extra attributes.",
+  "namespace_prefix": "rcra",
+  "namespace_uri": "https://schema.beckn.io/TradeResource#",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "container": "resourceAttributes",
+  "root_schema": "TradeResource",
+  "version": "2.1.0",
+  "schema_file": "attributes.yaml",
+  "context_file": "context.jsonld",
+  "vocab_file": "vocab.jsonld",
+  "renderer_file": "renderer.json",
+  "included_schemas": [
+    "TradeResource",
+    "IONExtraAttributes"
+  ],
+  "discovery_fields": [
+    "category",
+    "identity.brand",
+    "identity.originCountry"
+  ],
+  "indexable_paths": [
+    "beckn:resourceAttributes.category",
+    "beckn:resourceAttributes.identity.brand",
+    "beckn:resourceAttributes.identity.originCountry"
+  ],
+  "filterable_attributes": [
+    {
+      "path": "resourceAttributes.category",
+      "type": "string",
+      "operators": [
+        "eq",
+        "in"
+      ]
+    },
+    {
+      "path": "resourceAttributes.identity.brand",
+      "type": "string",
+      "operators": [
+        "eq",
+        "contains"
+      ]
+    },
+    {
+      "path": "resourceAttributes.identity.originCountry",
+      "type": "string",
+      "operators": [
+        "eq",
+        "in"
+      ]
+    }
+  ],
+  "sortable_paths": [
+    "beckn:resourceAttributes.identity.brand"
+  ],
+  "privacy_notes": [
+    "extraAttributes may contain NP-specific data whose sensitivity depends on the provided JSON-LD context."
+  ],
+  "metadata": {
+    "domain": "trade",
+    "status": "draft"
+  }
+}

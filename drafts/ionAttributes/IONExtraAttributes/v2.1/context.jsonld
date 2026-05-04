@@ -1,0 +1,15 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/context.jsonld#generalised",
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "ionx": "https://schema.ion.id/IONExtraAttributes#",
+    "@context": {
+      "@id": "ionx:context"
+    },
+    "@type": {
+      "@id": "ionx:type"
+    },
+    "IONExtraAttributes": "ionx:IONExtraAttributes"
+  }
+}

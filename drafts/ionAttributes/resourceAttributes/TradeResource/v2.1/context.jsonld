@@ -1,0 +1,30 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/context.jsonld#generalised",
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "iotrra": "https://schema.ion.id/TradeResource#",
+    "@context": {
+      "@id": "iotrra:@context"
+    },
+    "@type": {
+      "@id": "iotrra:@type"
+    },
+    "TradeResource": "iotrra:TradeResource",
+    "category": {
+      "@id": "iotrra:category"
+    },
+    "identity": {
+      "@id": "iotrra:identity"
+    },
+    "brand": {
+      "@id": "iotrra:brand"
+    },
+    "originCountry": {
+      "@id": "iotrra:originCountry"
+    },
+    "extraAttributes": {
+      "@id": "iotrra:extraAttributes"
+    }
+  }
+}

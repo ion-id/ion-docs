@@ -1,0 +1,37 @@
+openapi: 3.1.1
+info:
+  title: ION Extra Attributes (v2.1)
+  version: 2.1.0
+  description: >
+    JSON-LD aware container for NP-specific attributes of a class.
+    MUST include @context (URI) and @type (compact or full IRI).
+    Any additional properties are allowed and interpreted per the provided
+    JSON-LD context.
+paths: {}
+components:
+  schemas:
+    IONExtraAttributes:
+      type: object
+      description: >
+        JSON-LD aware container for NP-specific attributes of a class.
+        MUST include @context (URI) and @type (compact or full IRI).
+        Any additional properties are allowed and interpreted per the provided
+        JSON-LD context.
+      additionalProperties: true
+      x-ion-container: ionAttributes
+      x-jsonld:
+        "@context": "https://schema.ion.id/IONExtraAttributes/v2.1/context.jsonld"
+        "@type": "ionx:IONExtraAttributes"
+      required:
+        - "@context"
+        - "@type"
+      properties:
+        "@context":
+          type: string
+          description: NP specified JSON-LD context URI
+          format: uri
+          x-jsonld-id: "ionx:context"
+        "@type":
+          type: string
+          description: JSON-LD type defined within the context
+          x-jsonld-id: "ionx:type"

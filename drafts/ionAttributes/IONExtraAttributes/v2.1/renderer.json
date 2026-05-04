@@ -1,0 +1,22 @@
+{
+  "version": "2.1.0",
+  "schema_version": "2.1.0",
+  "domain": "IONExtraAttributes",
+  "container": "extraAttributes",
+  "renderers": [
+    {
+      "field": "@context",
+      "type": "uri",
+      "display_name": "Context",
+      "priority": 1
+    },
+    {
+      "field": "@type",
+      "type": "text",
+      "display_name": "Type",
+      "priority": 2
+    }
+  ],
+  "summary_template": "{{@type}}",
+  "detail_template": "Context: {{@context}}; Type: {{@type}}"
+}
