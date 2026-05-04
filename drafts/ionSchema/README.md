@@ -175,7 +175,7 @@ This folder contains files required to test the IONAttributes design of Schema.
 
 ### IONAttributes example with no extra NP attributes
 - This uses the TradeResource jsonld, but does not have NP defined extra attributes.
-- It should 
+- It should work
 
 ```
 {
