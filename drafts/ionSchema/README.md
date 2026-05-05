@@ -35,7 +35,7 @@ Having said that, this exercise wanted to do the following.
 
 2. Define a new [IONExtraAttributes Schema](https://github.com/ion-id/ion-docs/tree/ionAttributes/drafts/ionSchema/IONExtraAttributes) which is identical to the Attributes Schema in Beckn. This allows for extensions. 
 3. Make the core object [TradeResource](https://github.com/ion-id/ion-docs/tree/ionAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResource) by default closed to additionalProperties.
-4. Create a field in TradeResource called extraAttributes that is of type IONExtraAttributes and allows extensions.
+4. Create a field in TradeResource called participantAttributes that is of type IONExtraAttributes and allows extensions.
 
 
 
@@ -212,8 +212,8 @@ The postman collection is present in this folder. The json message content is li
 }
 ```
 
-### IONAttributes example with no extra NP attributes
-- This uses the TradeResource jsonld, but does not have NP defined extra attributes.
+### IONAttributes example with no extra participantAttributes
+- This uses the TradeResource jsonld, but does not have extra participantAttributes.
 - It should work
 
 ```
@@ -513,9 +513,9 @@ The postman collection is present in this folder. The json message content is li
 }
 ```
 
-### IONAttribute example with extra attributes at the NP Extra Attributes level
+### IONAttribute example with extra attributes at the participantAttributes level
 - Uses TradeResource schema
-- Adds attribute `physical` under extraAttributes
+- Adds attribute `physical` under participantAttributes
 - Should work without error
 
 
@@ -573,7 +573,7 @@ The postman collection is present in this folder. The json message content is li
                 "brand": "InstaCuppa",
                 "originCountry": "IN"
               },
-              "extraAttributes":{
+              "participantAttributes":{
                 "@context": "https://raw.githubusercontent.com/beckn/local-retail/refs/heads/main/schema/RetailResource/v2.1/context.jsonld",
                 "@type": "RetailResource",                
                 "physical": {
@@ -819,8 +819,8 @@ The postman collection is present in this folder. The json message content is li
 }
 ```
 
-### IONAttribute example with NP specified schema for ExtraAttributes
-- Uses the GroceryResource schema for ExtraAttributes
+### IONAttribute example with separate schema for participantAttributes
+- Uses the GroceryResource schema for participantAttributes
 - Works fine
 
 ```
@@ -877,7 +877,7 @@ The postman collection is present in this folder. The json message content is li
                 "brand": "InstaCuppa",
                 "originCountry": "IN"
               },
-              "extraAttributes":{
+              "participantAttributes":{
                 "@context": "https://schema.beckn.io/GroceryResource/v2.1/context.jsonld", 
                 "@type": "GroceryResource"
               }
