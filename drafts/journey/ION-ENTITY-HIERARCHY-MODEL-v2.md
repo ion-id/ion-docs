@@ -1,4 +1,4 @@
-# ION Entity Hierarchy Model
+# ION Entity Hierarchy Model 
 
 ---
 

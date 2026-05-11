@@ -1,4 +1,4 @@
-# Bu Sari Joins ION
+# Bu Sari Joins ION 
 ## A Step-by-Step Guide for Sellers
 
 **What this is:** A plain-language walkthrough of joining ION as a seller — told through the story of Bu Sari, who runs a pharmacy in Kemang, South Jakarta.
