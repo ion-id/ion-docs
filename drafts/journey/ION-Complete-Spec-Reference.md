@@ -1,4 +1,4 @@
-# ION — Complete Specification Reference
+# ION — Complete Specification Reference 
 
 **What this document is:** A plain-English reference for every structural concept in ION. It covers every sector, every segment, every CRC, every pattern, every variant — with examples throughout. Read it once and you understand the complete structure of the network.
 

@@ -1,4 +1,4 @@
-# ION Resource Categories
+# ION Resource Categories 
 
 **Version:** 0.1-draft  
 **Status:** For review  
