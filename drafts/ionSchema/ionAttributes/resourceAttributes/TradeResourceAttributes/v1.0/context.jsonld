@@ -1,0 +1,21 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/context.jsonld#generalised",
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "iotrra": "https://raw.githubusercontent.com/ion-id/ion-docs/refs/heads/ionAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResource/v2.1/context.jsonld#TradeResource#",
+    "@context": {
+      "@id": "iotrra:@context"
+    },
+    "@type": {
+      "@id": "iotrra:@type"
+    },
+    "TradeResource": "iotrra:TradeResource",
+    "countryOfOrigin": {
+      "@id": "iotrra:countryOfOrigin"
+    },
+    "participantAttributes": {
+      "@id": "iotrra:participantAttributes"
+    }
+  }
+}

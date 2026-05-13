@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "iotrra": "https://raw.githubusercontent.com/ion-id/ion-docs/refs/heads/ionAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResource/v2.1/context.jsonld#TradeResource#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "iotrra:TradeResource",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Trade Resource",
+      "rdfs:comment": "Attribute container for trade resource facts."
+    },
+    {
+      "@id": "iotrra:countryOfOrigin",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Origin Country",
+      "rdfs:comment": "Country of origin for the trade resource. ISO 3166-1 alpha-2 is recommended."
+    },
+    {
+      "@id": "iotrra:participantAttributes",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Participant Attributes",
+      "rdfs:comment": "NP-specific JSON-LD aware extra attributes for the resource."
+    }
+  ]
+}

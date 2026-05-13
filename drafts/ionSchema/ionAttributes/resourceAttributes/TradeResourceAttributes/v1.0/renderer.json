@@ -1,0 +1,16 @@
+{
+  "version": "2.1.0",
+  "schema_version": "2.1.0",
+  "domain": "TradeResource",
+  "container": "resourceAttributes",
+  "renderers": [
+    {
+      "field": "countryOfOrigin",
+      "type": "text",
+      "display_name": "Country of Origin",
+      "priority": 1
+    }
+  ],
+  "summary_template": "{{countryOfOrigin}}",
+  "detail_template": "Country Of Origin: {{countryOfOrigin}}"
+}
