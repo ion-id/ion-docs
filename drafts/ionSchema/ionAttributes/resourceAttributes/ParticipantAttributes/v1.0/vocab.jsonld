@@ -1,7 +1,7 @@
 {
   "@context": {
     "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
-    "iotrra": "https://raw.githubusercontent.com/indonesiaopennetwork/ion-docs/refs/heads/tradeResourceAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResourceAttributes/v1.0/context.jsonld#TradeResource#",
+    "para": "https://raw.githubusercontent.com/indonesiaopennetwork/ion-docs/refs/heads/tradeResourceAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/ParticipantAttributes/v1.0/context.jsonld#ParticipantResource#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
   },
   "@graph": [

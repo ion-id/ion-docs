@@ -12,7 +12,7 @@ components:
       type: object
       description: Participant extension for Trade ResourceAttributes.
       x-jsonld:
-        "@context": "https://raw.githubusercontent.com/indonesiaopennetwork/ion-docs/refs/heads/tradeResourceAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResourceAttributes/v1.0/context.jsonld"
+        "@context": "https://raw.githubusercontent.com/indonesiaopennetwork/ion-docs/refs/heads/tradeResourceAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/ParticipantAttributes/v1.0/context.jsonld"
         "@type": "para:ParticipantResource"
       properties:
         countryOfDesign:
