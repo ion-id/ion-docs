@@ -1,0 +1,18 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/context.jsonld#generalised",
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "para": "https://raw.githubusercontent.com/indonesiaopennetwork/ion-docs/refs/heads/tradeResourceAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResourceAttributes/v1.0/context.jsonld#TradeResource#",
+    "@context": {
+      "@id": "para:@context"
+    },
+    "@type": {
+      "@id": "para:@type"
+    },
+    "ParticipantResource": "para:ParticipantResource",
+    "countryOfDesign": {
+      "@id": "para:countryOfDesign"
+    }
+  }
+}

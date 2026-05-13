@@ -1,0 +1,45 @@
+{
+  "name": "ParticipantResource",
+  "title": "Participant Resource Attributes",
+  "description": "Attribute schema for participant trade resources with countryOfDesign.",
+  "namespace_prefix": "para",
+  "namespace_uri": "https://schema.beckn.io/TradeResource#",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "container": "resourceAttributes",
+  "root_schema": "ParticipantResource",
+  "version": "2.1.0",
+  "schema_file": "attributes.yaml",
+  "context_file": "context.jsonld",
+  "vocab_file": "vocab.jsonld",
+  "renderer_file": "renderer.json",
+  "included_schemas": [
+    "ParticipantResource"
+  ],
+  "discovery_fields": [
+    "countryOfDesign"
+  ],
+  "indexable_paths": [
+    "beckn:resourceAttributes.participantAttributes.countryOfDesign"
+  ],
+  "filterable_attributes": [
+    {
+      "path": "resourceAttributes.participantAttributes.countryOfDesign",
+      "type": "string",
+      "operators": [
+        "eq",
+        "in"
+      ]
+    }
+  ],
+  "sortable_paths": [
+    "beckn:resourceAttributes.participantAttributes.countryOfDesign"
+  ],
+  "privacy_notes": [
+    "countryOfDesign might be different from countryOfOrigin"
+  ],
+  "metadata": {
+    "domain": "trade",
+    "status": "draft"
+  }
+}

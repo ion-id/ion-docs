@@ -1,0 +1,22 @@
+openapi: 3.1.1
+info:
+  title: Trade Resource Attributes (v2.1)
+  version: 2.1.0
+  description: >
+    Attribute schema for trade resources. Attaches to beckn:Resource through
+    resourceAttributes.
+paths: {}
+components:
+  schemas:
+    ParticipantResource:
+      type: object
+      description: Participant extension for Trade ResourceAttributes.
+      x-jsonld:
+        "@context": "https://raw.githubusercontent.com/indonesiaopennetwork/ion-docs/refs/heads/tradeResourceAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResourceAttributes/v1.0/context.jsonld"
+        "@type": "para:ParticipantResource"
+      properties:
+        countryOfDesign:
+          type: string
+          description: ISO 3166-1 alpha-2 recommended
+          x-jsonld-id: "para:countryOfDesign"
+

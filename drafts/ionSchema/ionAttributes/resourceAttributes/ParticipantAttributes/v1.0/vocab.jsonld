@@ -1,0 +1,21 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "iotrra": "https://raw.githubusercontent.com/indonesiaopennetwork/ion-docs/refs/heads/tradeResourceAttributes/drafts/ionSchema/ionAttributes/resourceAttributes/TradeResourceAttributes/v1.0/context.jsonld#TradeResource#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "para:ParticipantResource",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Participant Resource",
+      "rdfs:comment": "Attribute container for participant trade resource attributes."
+    },
+    {
+      "@id": "para:countryOfDesign",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Design Country",
+      "rdfs:comment": "Country of design for the trade resource. ISO 3166-1 alpha-2 is recommended."
+    }
+  ]
+}

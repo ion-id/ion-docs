@@ -1,0 +1,16 @@
+{
+  "version": "2.1.0",
+  "schema_version": "2.1.0",
+  "domain": "ParticipantResource",
+  "container": "participantAttributes",
+  "renderers": [
+    {
+      "field": "countryOfDesign",
+      "type": "text",
+      "display_name": "Country of Design",
+      "priority": 1
+    }
+  ],
+  "summary_template": "{{countryOfDesign}}",
+  "detail_template": "Country Of Design: {{countryOfDesign}}"
+}
